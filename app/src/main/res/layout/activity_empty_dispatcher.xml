@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Верхняя панель с кнопками переключения -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="Связь"
+            android:checkable="true"
+            android:checked="true"
+            style="@style/Widget.Material3.Button.OutlinedButton" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSchedule"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checkable="true"
+            android:text="Расписание"
+            style="@style/Widget.Material3.Button.OutlinedButton" />
+    </LinearLayout>
+
+    <!-- Контейнер для смены содержимого -->
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Заглушка списка чатов -->
+        <LinearLayout
+            android:id="@+id/chatLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Список чатов (заглушка)"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Чат с клиентом 1\nЧат с клиентом 2\nЧат с клиентом 3"
+                android:lineSpacingExtra="4dp" />
+        </LinearLayout>
+
+        <!-- Календарная таблица расписания -->
+        <LinearLayout
+            android:id="@+id/scheduleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Расписание смен(заглушка)"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:stretchColumns="*">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView android:text="Пн" android:gravity="center" android:padding="4dp" android:textStyle="bold" />
+                    <TextView android:text="Вт" android:gravity="center" android:padding="4dp" android:textStyle="bold" />
+                    <TextView android:text="Ср" android:gravity="center" android:padding="4dp" android:textStyle="bold" />
+                    <TextView android:text="Чт" android:gravity="center" android:padding="4dp" android:textStyle="bold" />
+                    <TextView android:text="Пт" android:gravity="center" android:padding="4dp" android:textStyle="bold" />
+                    <TextView android:text="Сб" android:gravity="center" android:padding="4dp" android:textStyle="bold" />
+                    <TextView android:text="Вс" android:gravity="center" android:padding="4dp" android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <Spinner android:id="@+id/spMon" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" />
+                    <Spinner android:id="@+id/spTue" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" />
+                    <Spinner android:id="@+id/spWed" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" />
+                    <Spinner android:id="@+id/spThu" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" />
+                    <Spinner android:id="@+id/spFri" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" />
+                    <Spinner android:id="@+id/spSat" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" />
+                    <Spinner android:id="@+id/spSun" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" />
+                </TableRow>
+            </TableLayout>
+
+            <Button
+                android:id="@+id/btnSaveSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Сохранить расписание" />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
