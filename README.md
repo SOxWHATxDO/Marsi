@@ -11,3 +11,18 @@ Main features:
 
 Almost all of the dispatcher's functionality is not functional and is presented as a concept. Almost all of the functionality presented is implemented for the courier. The principle of the app's operation with couriers is borrowed from the Samokat courier company. Orders should automatically be assigned to a free courier who is assigned to the area from which the order originated. The app accepts coordinates for MapKit and the order ID for establishing a communication channel with the client.
 The program was developed not for commercial use but for practice.
+
+com.example.marsi
+|-- data
+│ |-- CourierRepository.kt       // Interface and InMemory implementation
+|-- model
+| |-- Courier.kt                 // Courier model (+ CourieStatus enum)
+|-- MainActivity.kt              // Main screen with map
+|-- MainViewModel.kt             // ViewModel for the main screen
+|-- MainViewModelFactory.kt      // Factory for MainViewModel
+|-- LoginActivity.kt             // Login screen
+|-- LoginViewModel.kt            // ViewModel for login
+|-- LoginViewModelFactory.kt     // Factory for LoginViewModel
+|-- EmptyDispatcherActivity.kt   // Dispatcher stub
+|-- ProfileActivity.kt           // Courier profile screen
+|-- BuildConfig                   // MAPKIT_API_KEY
