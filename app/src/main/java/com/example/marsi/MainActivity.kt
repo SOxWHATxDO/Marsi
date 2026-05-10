@@ -45,8 +45,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fabFocus: FloatingActionButton
     private lateinit var chatOverlay: View
 
-    private val courierRepository = InMemoryCourierRepository()
-    private val viewModel: MainViewModel by viewModels { MainViewModelFactory(courierRepository) }
+    private val viewModel: MainViewModel by viewModels {
+        MainViewModelFactory(InMemoryCourierRepository())
+    }
 
     @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +60,6 @@ class MainActivity : AppCompatActivity() {
         mapView = findViewById(R.id.mapview)
         val ivMenu = findViewById<ImageView>(R.id.iv_menu_icon)
         val tvEta = findViewById<TextView>(R.id.tvEta)
-        // tvStatus удалён из макета, больше не инициализируем
 
         fabBuildRoute = findViewById(R.id.fabBuildRoute)
         fabFocus = findViewById(R.id.fabFocusLocation)
@@ -82,8 +82,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.etaText.observe(this) { tvEta.text = it }
-
-        // Статус только в лог
         viewModel.courier.observe(this) { courier ->
             val statusString = when (courier.status) {
                 CourierStatus.FREE -> "Свободен"

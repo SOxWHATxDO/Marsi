@@ -34,28 +34,6 @@
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <RadioGroup
-        android:id="@+id/rgMode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <RadioButton
-            android:id="@+id/rbCourier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Курьер" />
-
-        <RadioButton
-            android:id="@+id/rbDispatcher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:text="Диспетчер" />
-    </RadioGroup>
 
     <Button
         android:id="@+id/btnLogin"
